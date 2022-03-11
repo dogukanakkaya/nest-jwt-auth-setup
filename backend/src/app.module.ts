@@ -17,6 +17,7 @@ import { UserModule } from './user/user.module';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>('mongo.uri'),
+        connectionName: configService.get<string>('mongo.connection')
       })
     }),
     AuthModule,

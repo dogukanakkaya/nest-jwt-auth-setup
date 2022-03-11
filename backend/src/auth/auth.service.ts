@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { User } from '../user/user.schema';
 import { UserService } from '../user/user.service';
-import { User } from '../user/user.types';
 import { Payload } from './auth.types';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class AuthService {
         const user = await this.validateUser(email, password);
 
         if (user) {
-            const payload: Payload = { email, sub: user.id };
+            const payload: Payload = { email, sub: 11 };
 
             return {
                 token: this.jwtService.sign(payload),

@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
 import configuration from './config/configuration';
 import { UserModule } from './user/user.module';
+import { EncryptModule } from './encrypt/encrypt.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { UserModule } from './user/user.module';
       })
     }),
     AuthModule,
-    UserModule
+    UserModule,
+    EncryptModule
   ],
   controllers: [AppController]
 })

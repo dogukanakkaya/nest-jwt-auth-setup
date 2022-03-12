@@ -51,8 +51,6 @@ describe('UserService', () => {
     });
 
     afterAll(async () => {
-        console.log(connection);
-
         await connection.close();
         await mongoMemoryServer.stop();
     });

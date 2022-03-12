@@ -5,6 +5,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { User, UserSchema } from './user.schema';
 import { UserService } from './user.service';
 import { mongoMemoryServer, TestModule } from '../test/test.module';
+import { EncryptModule } from '../encrypt/encrypt.module';
 
 describe('UserService', () => {
     let userService: UserService;
@@ -15,7 +16,8 @@ describe('UserService', () => {
         const module: TestingModule = await Test.createTestingModule({
             imports: [
                 TestModule,
-                MongooseModule.forFeature([{ name: User.name, schema: UserSchema }])
+                MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+                EncryptModule
             ],
             providers: [UserService],
         }).compile();

@@ -9,7 +9,7 @@ export class UndecryptableService {
     ) { }
 
     async encrypt(value: string): Promise<string> {
-        return bcrypt.hash(value, this.configService.get<number>('encrypt.saltRounds', 10));
+        return bcrypt.hash(value, Number(this.configService.get<number>('encrypt.saltRounds', 10)));
     }
 
     async check(value, encrypted): Promise<boolean> {
